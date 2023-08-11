@@ -1,0 +1,37 @@
+{
+  "endpoints_acl": {
+    "generated-in-routes.json": "will replace at runtime"
+  },
+  "roles_chart": {
+    "owner": {
+      "access": ["delete:org", "update:org"]
+    },
+    "manager": {
+      "access": ["invite:org"],
+      "owner": "owner"
+    },
+    "editor": {
+      "access": ["create:project", "update:project", "delete:project"],
+      "owner": "manager"
+    },
+    "viewer": {
+      "access": [
+        "read:user",
+        "update:user",
+
+        "read:org",
+        "list:org",
+
+        "list:project",
+        "read:project",
+
+        "read:me"
+      ],
+      "owner": "manager"
+    },
+    "guest": {
+      "access": [],
+      "owner": "manager"
+    }
+  }
+}

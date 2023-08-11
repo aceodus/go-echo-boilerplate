@@ -1,0 +1,541 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This documentation for Echo REST server.",
+        "title": "Echo REST API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Dzung Tran",
+            "url": "https://docs.api.com/support",
+            "email": "support@api.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/admin/orgs": {
+            "get": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Get list org",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "orgs"
+                ],
+                "summary": "Get list org",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Number of records should be returned",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page",
+                        "name": "page",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/domains.Org"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Create a new org",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "orgs"
+                ],
+                "summary": "Create a new org",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/domains.Org"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/orgs/{orgId}": {
+            "get": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Get org info by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "orgs"
+                ],
+                "summary": "Get org info",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Org ID",
+                        "name": "orgId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/domains.Org"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/users": {
+            "get": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Get list user info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get list user info",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/domains.User"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Craete a new user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Craete a new user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/domains.User"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/users/{userId}": {
+            "get": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Get user info by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get user info",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "User ID",
+                        "name": "userId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/domains.User"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Update user info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Update user info",
+                "parameters": [
+                    {
+                        "description": "Request body update user",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.UpdateUserReq"
+                        }
+                    },
+                    {
+                        "type": "integer",
+                        "description": "User ID",
+                        "name": "userId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/wrapper.SuccessResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Delete user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Delete user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/wrapper.SuccessResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/me": {
+            "get": {
+                "security": [
+                    {
+                        "XFirebaseBearer": []
+                    }
+                ],
+                "description": "Get current user info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Get current user info",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/wrapper.SuccessResponse"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/domains.User"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domains.Org": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "logo": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "domains.User": {
+            "description": "User account information",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "User last name",
+                    "type": "string",
+                    "example": "95a8d1aa-xxx-xxx-0c15d41"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "email@api.com"
+                },
+                "first_name": {
+                    "description": "User first name",
+                    "type": "string",
+                    "example": "Dzung"
+                },
+                "id": {
+                    "description": "User indetifier number",
+                    "type": "integer",
+                    "example": 1
+                },
+                "last_name": {
+                    "description": "User last name",
+                    "type": "string",
+                    "example": "Tran"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "+84 0986415xxxx"
+                },
+                "status": {
+                    "enum": [
+                        "active",
+                        "deactivated",
+                        "banned"
+                    ],
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/domains.UserStatus"
+                        }
+                    ],
+                    "example": "active"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "domains.UserStatus": {
+            "type": "string",
+            "enum": [
+                "active",
+                "deactivated",
+                "banned",
+                "invited"
+            ],
+            "x-enum-varnames": [
+                "UserStatusActive",
+                "UserStatusDeactivated",
+                "UserStatusBanned",
+                "UserStatusInvited"
+            ]
+        },
+        "dto.UpdateUserReq": {
+            "type": "object",
+            "properties": {
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "wrapper.SuccessResponse": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "metadata": {},
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "XFirebaseBearer": {
+            "description": "Enter the token with the `Bearer ` prefix, e.g. `Bearer jwt_token_string`.",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "XUserEmailAuth": {
+            "description": "This method just enabled for local development",
+            "type": "apiKey",
+            "name": "X-User-Email",
+            "in": "header"
+        }
+    }
+}
