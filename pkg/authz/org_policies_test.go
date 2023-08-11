@@ -3,7 +3,7 @@ package authz
 import (
 	"testing"
 
-	"github.com/dzungtran/echo-rest-api/modules/core/domains"
+	"github.com/aceodus/go-echo-boilerplate/modules/core/domains"
 	"github.com/stretchr/testify/assert"
 )
 

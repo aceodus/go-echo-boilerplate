@@ -1,9 +1,9 @@
 package contexts
 
 import (
-	coreDomains "github.com/dzungtran/echo-rest-api/modules/core/domains"
-	projectDomains "github.com/dzungtran/echo-rest-api/modules/projects/domains"
-	"github.com/dzungtran/echo-rest-api/pkg/constants"
+	coreDomains "github.com/aceodus/go-echo-boilerplate/modules/core/domains"
+	projectDomains "github.com/aceodus/go-echo-boilerplate/modules/projects/domains"
+	"github.com/aceodus/go-echo-boilerplate/pkg/constants"
 	"github.com/labstack/echo/v4"
 )
 

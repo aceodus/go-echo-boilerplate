@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/dzungtran/echo-rest-api/modules/core/domains"
-	"github.com/dzungtran/echo-rest-api/pkg/contexts"
-	"github.com/dzungtran/echo-rest-api/pkg/logger"
+	"github.com/aceodus/go-echo-boilerplate/modules/core/domains"
+	"github.com/aceodus/go-echo-boilerplate/pkg/contexts"
+	"github.com/aceodus/go-echo-boilerplate/pkg/logger"
 	"github.com/labstack/echo/v4"
 	"github.com/open-policy-agent/opa/ast"
 	"github.com/open-policy-agent/opa/rego"

@@ -1,7 +1,7 @@
 package subscribers
 
 import (
-	"github.com/dzungtran/echo-rest-api/pkg/hook"
+	"github.com/aceodus/go-echo-boilerplate/pkg/hook"
 )
 
 type UserSubscriber struct {

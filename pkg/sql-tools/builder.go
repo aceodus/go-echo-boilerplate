@@ -5,7 +5,7 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/Masterminds/squirrel"
-	"github.com/dzungtran/echo-rest-api/pkg/logger"
+	"github.com/aceodus/go-echo-boilerplate/pkg/logger"
 	"github.com/jmoiron/sqlx"
 )
 
